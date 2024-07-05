@@ -1,22 +1,19 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigations/HomeStackNavigation';
 
-type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Home'>;
+type Props = NativeStackScreenProps<RootStackParamList, 'MovieDetail'>;
 
-export default function Home(): JSX.Element {
-  const navigation = useNavigation<HomeScreenNavigationProp>();
-
+export default function MovieDetail({ navigation }: Props): JSX.Element {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Movie Page</Text>
+      <Text style={styles.title}>Movie Detail Page</Text>
       <TouchableOpacity
-        style={[styles.button, { backgroundColor: '#1E90FF' }]}
-        onPress={() => navigation.navigate('MovieDetail', { movieId: 1 })}
+        style={styles.button}
+        onPress={() => navigation.goBack()}
       >
-        <Text style={styles.buttonText}>Pergi ke Movie Detail</Text>
+        <Text style={styles.buttonText}>Kembali</Text>
       </TouchableOpacity>
     </View>
   );
@@ -29,13 +26,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fff',
   },
-  text: {
+  title: {
     fontSize: 18,
     marginBottom: 10,
   },
   button: {
     padding: 10,
     borderRadius: 10,
+    backgroundColor: '#1E90FF',
     elevation: 8,
   },
   buttonText: {
