@@ -1,0 +1,33 @@
+{
+    "env": {
+      "browser": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:react/recommended",
+       "prettier"
+    ],
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": "latest",
+      "sourceType": "module",
+      "project": "./tsconfig.json"
+    },
+    "overrides": [
+      {
+        "files": ["**/*.{js,mjs,cjs,ts,jsx,tsx}"]
+      }
+    ],
+    "globals": {
+      "browser": "readonly"
+    },
+    "plugins": [
+      "@typescript-eslint",
+      "react"
+    ],
+    "rules": {}
+  }
+  
